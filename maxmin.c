@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 int* number;
 int n;
@@ -53,7 +54,12 @@ int main()
         scanf("%d",&number[i]);
     }
     int* ans =(int*)malloc(2*sizeof(int));
+    clock_t start=clock();
+    ans=maxmin(0,n-1);
+    clock_t end = clock();
+    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
     ans=maxmin(0,n-1);
     printf("Max = %d min = %d\n",ans[0],ans[1]);
+    printf("Time taken: %f seconds\n", time_taken);
     return 0;
 }
